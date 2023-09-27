@@ -1,7 +1,9 @@
 
 ## SNOW-17
 
-Snow-17 accumulation and ablation model. This version of Snow-17 is intended for use at a point location. This code is writen in R programming language, converted from MATLAB code written by Mark Raleigh (mraleig1\@uw.edu) based on Anderson (2006).
+Snow-17 accumulation and ablation model. This code is writen in R programming language, converted from MATLAB code written by Mark Raleigh (mraleig1\@uw.edu) based on Anderson (2006).
+
+This version of Snow-17 is intended for both use at a point location and gridded data (raster file). 
 
 The time steps for precipitation and temperature must be equal for this code. This version provides detailed outputs, and includes the compaction module to compute snow depth and bulk density.
 
