@@ -1,10 +1,10 @@
 library(lubridate)
-source("R/SNOW-17_distributed/elev2press.R")
-source("R/SNOW-17_distributed/isleapyear.R")
-source("R/SNOW-17_distributed/meltfunction.R")
-source("R/SNOW-17_distributed/RVsS.R")
-source("R/SNOW-17_distributed/snowT.R")
-source("R/SNOW-17_distributed/snowpack.R")
+source("R/SNOW-17_distributed/useful_functions/elev2press.R")
+source("R/SNOW-17_distributed/useful_functions/isleapyear.R")
+source("R/SNOW-17_distributed/useful_functions/meltfunction.R")
+source("R/SNOW-17_distributed/useful_functions/RVsS.R")
+source("R/SNOW-17_distributed/useful_functions/snowT.R")
+source("R/SNOW-17_distributed/useful_functions/snowpack.R")
 
 snow17dc <- function(sINPUTS, sIC, sSETTINGS, sPARAMS){
   

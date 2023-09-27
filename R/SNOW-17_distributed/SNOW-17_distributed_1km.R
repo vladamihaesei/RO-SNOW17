@@ -1,24 +1,25 @@
 ### distributed snow-17 
 ## the following script is written in R programming language based on the Mark Raleigh's MATLAB code of SNOW-17.
 library(terra)
-source("R/water_year.R")
+source("R/SNOW-17_distributed/useful_functions/water_year.R")
 source("R/SNOW-17_distributed/snow17_rasterfunction.R")
 
 temp.ls <- list.files("~/Y/snowball/nc/observatii/tavg", full.names = T, pattern = ".nc")
 dat <-  sort(as.numeric(substr(temp.ls,nchar(temp.ls) - 10,nchar(temp.ls) - 7)))
-temp.ls <- temp.ls[dat >= 2018]
+temp.ls <- temp.ls[dat >= 2017 & dat <= 2018]
 temp.ls <- wateryearlist(data = temp.ls)
 
 prec.ls <- list.files("~/Y/snowball/nc/observatii/prec", full.names = T, pattern = ".nc")
 dat <-  sort(as.numeric(substr(prec.ls,nchar(prec.ls) - 10,nchar(prec.ls) - 7)))
-prec.ls <- prec.ls[dat >= 2018]
+prec.ls <- prec.ls[dat >= 2017 & dat <= 2018]
 prec.ls <- wateryearlist(data = prec.ls)
 
-elev <- as.array(readRDS("tabs/arrays/ro_elevation_1km.rds"))
+elev <- as.array(readRDS("inputs/grids/ro_elevation_1km.rds"))
 
-SWE.r <- rast()
+
 ### calculate for each day
 for( i in 1:length(temp.ls)){
+  
   
   temp <- terra::rast(temp.ls[i])
   Temp <- as.array(temp)
@@ -45,14 +46,16 @@ for( i in 1:length(temp.ls)){
   ext(SWE) <- ext(temp) 
   crs(SWE) <- "+init=epsg:3844"
   
-  writeCDF(SWE,paste0("~/D/2023/nc/SWE/", "swe_", as.Date(TIME,format = "%Y%m%d"), ".nc"), overwrite = T)
+  writeCDF(SWE,paste0("~/D/2023/nc/1km/SWE/", "swe_", as.Date(TIME,format = "%Y%m%d"), ".nc"), overwrite = T)
   
   ### SD
   SD  <- terra::rast(s17$Hs)
   ext(SD) <- ext(temp) 
   crs(SD) <- "+init=epsg:3844"
   
-  writeCDF(SD,paste0("~/D/2023/nc/SD/", "sd_", as.Date(TIME,format = "%Y%m%d"), ".nc"), overwrite = T)
+  writeCDF(SD,paste0("~/D/2023/nc/1km/SD/", "sd_", as.Date(TIME,format = "%Y%m%d"), ".nc"), overwrite = T)
+  
+  gc()
   
 }
 
