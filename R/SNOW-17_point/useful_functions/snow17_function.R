@@ -143,11 +143,11 @@ snow17c <- function(sINPUTS, sIC, sSETTINGS, PARAMS, PARAMS1) {
   
   # Divide Rain and Snow at all time steps
   if (RvS == 0) {
-    result <- RvsS(Temp, Prec, RvS, PXTEMP)
+    result <- RvsS(Temp, Prec, RvS, v1 = PXTEMP, v2 = NULL)
     Rfall <- result$Rfall
     Sfall <- result$Sfall
   } else if (RvS == 1) {
-    result <- RvsS(Temp, Prec, RvS, PXTEMP1, PXTEMP2)
+    result <- RvsS(Temp, Prec, RvS, v1 = PXTEMP1, v2 = PXTEMP2)
     Rfall <- result$Rfall
     Sfall <- result$Sfall
   } else if (RvS == 2) {
@@ -182,7 +182,7 @@ snow17c <- function(sINPUTS, sIC, sSETTINGS, PARAMS, PARAMS1) {
     SNOWout$RHOn[Tpp > -15] <- 0.05 + 0.0017 * ((Tpp[Tpp > -15] + 15)^1.5)
   } else if (mDEC_RHO_NEW == 1) {
     # HEDSTROM AND POMEROY METHOD
-    SNOWout$RHOn <- newSnowDenMin + newSnowDenMult * exp(T / newSnowDenScal)
+    SNOWout$RHOn <- newSnowDenMin + newSnowDenMult * exp(Temp / newSnowDenScal)
     SNOWout$RHOn[SNOWout$RHOn > 0.15] <- 0.15
   } else if (mDEC_RHO_NEW == 2) {
     # CONSTANT VALUE
