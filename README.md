@@ -102,7 +102,7 @@ structure includes these fields. This is the only required input
 
 ## **SNOWout**  
 
-1.   TIME = Lx7 time matrix (time_builder.m format)
+1.   TIME = Lx7 time matrix (see time_builder.R format)
 
 2.  SWE = Lx1 array of modeled SWE (mm)
 
