@@ -51,7 +51,9 @@ structure includes these fields. This is the only required input
 
 2.   mDEC_RHO_COMPACTION = modeling decision. specify whether compaction routine is included Enter 0 to turn off Enter 1 to turn on (default) 3
 
-3.   mDEC_RHO_DM_METAMORPH = modeling decision. specify whether densification from destructive metamorphism and melt metamorphism is represented Enter 0 to turn off Enter 1 to turn on (default) 4) mDEC_RHO_NEW = method for new snow density Enter 0 for Anderson (default) Enter 1 for Hedstrom and Pomeroy Enter 2 for constant value 5) mDEC_RHO_METHOD = method for snowpack densification Enter 0 for Anderson (default) Enter 1 for density-time curve Enter 2 for Snobal-like density-time curves Enter 3 for constant value Enter 4 for Snobal updated
+3.   mDEC_RHO_DM_METAMORPH = modeling decision. specify whether densification from destructive metamorphism and melt metamorphism is represented Enter 0 to turn off Enter 1 to turn on (default)
+4.   mDEC_RHO_NEW = method for new snow density Enter 0 for Anderson (default) Enter 1 for Hedstrom and Pomeroy Enter 2 for constant value
+5.   mDEC_RHO_METHOD = method for snowpack densification Enter 0 for Anderson (default) Enter 1 for density-time curve Enter 2 for Snobal-like density-time curves Enter 3 for constant value Enter 4 for Snobal updated
 
 -   **sPARAMS** structure includes any or all or none of these fields. Traditional Params
 
